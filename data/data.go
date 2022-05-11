@@ -58,6 +58,7 @@ func (pb Phonebook) Save(w io.Writer) error {
 		pb.Listings = []Listing{}
 	}
 	encoder := json.NewEncoder(w)
+	encoder.SetIndent("", "  ")
 	if err := encoder.Encode(pb.Listings); err != nil {
 		return err
 	}
