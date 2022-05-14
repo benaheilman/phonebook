@@ -5,10 +5,6 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
-	"log"
-
-	"github.com/benaheilman/phonebook/db"
 	"github.com/spf13/cobra"
 )
 
@@ -17,17 +13,7 @@ var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List entries in the Phone Book",
 	Run: func(cmd *cobra.Command, args []string) {
-		dbPath, err := cmd.Parent().Flags().GetString("database")
-		if err != nil {
-			log.Fatal(err)
-		}
-		pb := db.LoadDatabase(dbPath)
-		fmt.Println("EMPLOYEE PHONE BOOK")
-		fmt.Println("===================")
-		for _, listing := range pb.Listings {
-			fmt.Print(listing.String())
-			fmt.Println()
-		}
+		return
 	},
 }
 
